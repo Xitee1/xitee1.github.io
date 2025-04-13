@@ -1,0 +1,31 @@
+site_name: Xitee
+site_url: https://xitee1.github.io
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        text: Toggle dark mode
+
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        text: Toggle light mode
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+        alternate_style: true
+  - admonition
+  - pymdownx.details
