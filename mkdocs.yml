@@ -18,6 +18,10 @@ theme:
 repo_url: https://github.com/Xitee1/xitee1.github.io
 repo_name: Xitee1/xitee1.github.io
 
+plugins:
+  - search
+  - privacy
+
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
