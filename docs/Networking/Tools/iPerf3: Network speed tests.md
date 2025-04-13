@@ -34,8 +34,8 @@ iperf3 --help
 
 
 ## Installation
-### Official website
-https://iperf.fr/iperf-download.php
+[Official website](https://iperf.fr/iperf-download.php){:target="_blank"}
+
 
 ### Debian/Ubuntu
 ```bash
