@@ -1,4 +1,4 @@
-iPerf 3 is a useful tool that allows you to easily do (local) network speed tests between two computers.
+iperf 3 is a useful tool that allows you to easily do (local) network speed tests between two computers.
 
 ## Usage
 ### Server
@@ -34,8 +34,6 @@ iperf3 --help
 
 
 ## Installation
-[Official website](https://iperf.fr/iperf-download.php){:target="_blank"}
-
 
 ### Debian/Ubuntu
 ```bash
@@ -90,7 +88,7 @@ Reload systemctl (this is needed after creating/modifying systemd service files)
 systemctl daemon-reload
 ```
 
-Start the iPerf3 server:
+Start the iperf3 server:
 ```bash
 systemctl start iperf3
 ```
