@@ -2,6 +2,8 @@ site_name: Xitee
 site_url: https://xitee1.github.io
 theme:
   name: material
+  features:
+    - search.highlight
   palette:
     - scheme: slate
       toggle:
