@@ -1,3 +1,5 @@
+# MKDocs Syntax Examples
+
 ## Syntax testing
 ```yaml title="test.yaml" linenums="1" hl_lines="2-3"
 a:

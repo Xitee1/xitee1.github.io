@@ -1,3 +1,5 @@
+# Specific (Wi-Fi) Network works for few seconds, breaks, then works again for few seconds
+
 ## Story
 So I had really weird network problems on one specific Wi-Fi network on my laptop running Kubuntu.
 

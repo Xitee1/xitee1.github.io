@@ -1,3 +1,5 @@
+# Sideload an Android App and spoofing the installer
+
 When installing an Android app, the system keeps track of where it came from.
 For example, if you install an app from the Google Play Store, the app info will show something like "Installed from Google Play Store".
 Normally, it doesn't matter where the app came from, but in some cases like Android Auto, it does.

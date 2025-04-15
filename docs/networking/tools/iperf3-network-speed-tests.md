@@ -1,3 +1,5 @@
+# iperf3: Network speed tests
+
 iperf 3 is a useful tool that allows you to easily do (local) network speed tests between two computers.
 
 ## Usage
