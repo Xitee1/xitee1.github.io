@@ -22,6 +22,7 @@ repo_name: Xitee1/xitee1.github.io
 plugins:
   - search
   - privacy
+  - blog
 
 markdown_extensions:
   - attr_list
