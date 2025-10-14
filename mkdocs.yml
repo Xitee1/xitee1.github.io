@@ -2,6 +2,7 @@ site_name: Xitee
 site_url: https://docs.xitma.de
 theme:
   name: material
+  custom_dir: overrides
   features:
     - search.highlight
     - navigation.instant
