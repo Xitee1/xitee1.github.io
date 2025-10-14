@@ -4,6 +4,7 @@ theme:
   name: material
   features:
     - search.highlight
+    - navigation.instant
   palette:
     - scheme: slate
       toggle:
