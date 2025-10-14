@@ -5,6 +5,7 @@ theme:
   features:
     - search.highlight
     - navigation.instant
+    - navigation.instant.progress
   palette:
     - scheme: slate
       toggle:
