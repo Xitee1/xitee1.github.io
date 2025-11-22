@@ -31,11 +31,25 @@ It's meant for absolute beginners, although it's assumed that you have some basi
 
 - Soldering iron and belonging tools
 - CX Card(s) (you'll need two of them to capture video **and** audio because VHS uses two channels, but in this first test we're only going to capture video, so one is enough for now)
-- BNC Female Jack Bulkhead To SMA Male SMA Plug ![bnc-female-jack-bulkhead-to-sma-male-sma-plug.png](images/components/bnc-female-jack-bulkhead-to-sma-male-sma-plug.png)
-- SMA Male to SMA Male (or two separate male cables with no connector at the other end, but I found it's easier to find a male to male cable and just cut it in half)  ![sma-male-to-sma-male.png](images/components/sma-male-to-sma-male.png)
-- RG316 BNC Male to BNC Male ![rg316-bnc-male-to-bnc-male.png](images/components/rg316-bnc-male-to-bnc-male.png)
-- BNC Female Right Angle 90 Degree Plug (make sure they look like in this image, there are lots of different variants and this is the one that fits to the CX cards) ![bnc-female-right-angle-90-degree-plug.png](images/components/bnc-female-right-angle-90-degree-plug.png)
-- 10uF Capacitor, preferred ceramic but if you have a spare electrolytic it'll do, but there you need to be aware of the polarization (or just directly go with the amplifier from the ko-fi store, but as of writing this, I haven't fully understood it myself and are just in the first capture stage) ![10uf-capacitor.png](images/components/10uf-capacitor.png)
+- BNC Female Jack Bulkhead To SMA Male SMA Plug 
+
+    ![BNC Female Jack Bulkhead To SMA Male SMA Plug](images/components/bnc-female-jack-bulkhead-to-sma-male-sma-plug.png)
+
+- SMA Male to SMA Male (or two separate male cables with no connector at the other end, but I found it's easier to find a male to male cable and just cut it in half)
+
+    ![SMA Male to SMA Male](images/components/sma-male-to-sma-male.png)
+
+- RG316 BNC Male to BNC Male 
+
+    ![RG316 BNC Male to BNC Male](images/components/rg316-bnc-male-to-bnc-male.png)
+
+- BNC Female Right Angle 90 Degree Plug (make sure they look like in this image, there are lots of different variants and this is the one that fits to the CX cards) 
+
+    ![BNC Female Right Angle 90 Degree Plug](images/components/bnc-female-right-angle-90-degree-plug.png)
+
+- 10uF Capacitor, preferred ceramic but if you have a spare electrolytic it'll do, but there you need to be aware of the polarization (or just directly go with the amplifier from the ko-fi store, but as of writing this, I haven't fully understood it myself and are just in the first capture stage) 
+
+    ![10uF Capacitor](images/components/10uf-capacitor.png)
 
 To make it clear if you're a bit overwhelmed with all the connectors: These are really only for convenience. Theoretically, just a long enough bare coaxial cable would be enough, the connectors are just for convenience to allow you unplugging it and integrating the amplifier (you don't need to know about the amplifier yet).
 
@@ -87,11 +101,11 @@ Now you have a SMA male connector that goes to your test point.
 Then use the other cables to extend it and to get a final BNC male output.
 You can also prepare the other cable for Hi-Fi audio capture.
 
-![first-cable-tap-in-vcr-close.jpg](images/first-cable-tap-in-vcr-close.jpg)
+![Cable tap in VCR - Close view](images/first-cable-tap-in-vcr-close.jpg)
 
-![first-cable-tap-in-vcr-overview.jpg](images/first-cable-tap-in-vcr-overview.jpg)
+![Cable tap in VCR - Overview](images/first-cable-tap-in-vcr-overview.jpg)
 
-![first-cable-from-vcr.jpg](images/first-cable-from-vcr.jpg)
+![Cable from VCR](images/first-cable-from-vcr.jpg)
 
 #### CX Cards
 
@@ -111,7 +125,7 @@ Because I will do the clockgen mod later anyway (which I really recommend to avo
 After your card is ready, install it to your capturing PC.
 I recommend not connecting the previously made BNC male output from the VCR yet before the driver is installed.
 
-![cx-card-1-in-pc.jpg](images/cx-card-1-in-pc.jpg)
+![CX Card installed in PC](images/cx-card-1-in-pc.jpg)
 
 ## The software part
 
@@ -128,4 +142,4 @@ I recommend not connecting the previously made BNC male output from the VCR yet 
 
 ## somewhere later
 
-![first-cabled-connected-to-cx-card.jpg](images/first-cable-connected-to-cx-card.jpg)
+![First cable connected to CX card](images/first-cable-connected-to-cx-card.jpg)

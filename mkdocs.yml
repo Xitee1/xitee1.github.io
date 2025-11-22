@@ -29,6 +29,7 @@ plugins:
   - blog
   - meta
   - awesome-nav
+  - glightbox
   - git-revision-date-localized:
       type: timeago
       fallback_to_build_date: false
