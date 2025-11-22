@@ -8,4 +8,4 @@ Visit the page here: https://xitee1.github.io/
 3. `python -m venv .venv`
 4. `source .venv/bin/activate`
 5. `pip install -r requirements.txt`
-6. `mkdocs serve` or by run via vscode (MkDocs: Serve)
+6. `mkdocs serve` or run via vscode (MkDocs: Serve)
