@@ -31,11 +31,11 @@ It's meant for absolute beginners, although it's assumed that you have some basi
 
 - Soldering iron and belonging tools
 - CX Card(s) (you'll need two of them to capture video **and** audio because VHS uses two channels, but in this first test we're only going to capture video, so one is enough for now)
-- BNC Female Jack Bulkhead To SMA Male SMA Plug ![[Pasted image 20251012173919.png]]
-- SMA Male to SMA Male (or two separate male cables with no connector at the other end, but I found it's easier to find a male to male cable and just cut it in half)  ![[Pasted image 20251012175056.png]]
-- RG316 BNC Male to BNC Male ![[Pasted image 20251012175726.png]]
-- BNC Female Right Angle 90 Degree Plug (make sure they look like in this image, there are lots of different variants and this is the one that fits to the CX cards) ![[Pasted image 20251012175701.png]]
-- 10uF Capacitor, preferred ceramic but if you have a spare electrolytic it'll do, but there you need to be aware of the polarization (or just directly go with the amplifier from the ko-fi store, but as of writing this, I haven't fully understood it myself and are just in the first capture stage)![[Pasted image 20251012180347.png]]
+- BNC Female Jack Bulkhead To SMA Male SMA Plug ![bnc-female-jack-bulkhead-to-sma-male-sma-plug.png](images/components/bnc-female-jack-bulkhead-to-sma-male-sma-plug.png)
+- SMA Male to SMA Male (or two separate male cables with no connector at the other end, but I found it's easier to find a male to male cable and just cut it in half)  ![sma-male-to-sma-male.png](images/components/sma-male-to-sma-male.png)
+- RG316 BNC Male to BNC Male ![rg316-bnc-male-to-bnc-male.png](images/components/rg316-bnc-male-to-bnc-male.png)
+- BNC Female Right Angle 90 Degree Plug (make sure they look like in this image, there are lots of different variants and this is the one that fits to the CX cards) ![bnc-female-right-angle-90-degree-plug.png](images/components/bnc-female-right-angle-90-degree-plug.png)
+- 10uF Capacitor, preferred ceramic but if you have a spare electrolytic it'll do, but there you need to be aware of the polarization (or just directly go with the amplifier from the ko-fi store, but as of writing this, I haven't fully understood it myself and are just in the first capture stage) ![10uf-capacitor.png](images/components/10uf-capacitor.png)
 
 To make it clear if you're a bit overwhelmed with all the connectors: These are really only for convenience. Theoretically, just a long enough bare coaxial cable would be enough, the connectors are just for convenience to allow you unplugging it and integrating the amplifier (you don't need to know about the amplifier yet).
 
