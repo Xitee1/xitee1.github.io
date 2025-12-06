@@ -10,7 +10,7 @@ draft: true
 
 **This tutorial is exclusively for capturing VHS tapes**
 
-This tutorial (or rather blog) shows you start to end on how to do your very first video-only capture with vhs-decode.
+This tutorial (or rather blog) shows you start to end on how to do your very first video-only capture with vhs-decode in Linux.
 Capturing audio and improving the quality will come in later parts of this blog (if I manage to understand it :laught:).
 It's meant for absolute beginners, although it's assumed that you have some basic technical understanding + skills and know how to use the terminal in Linux.
 
@@ -30,25 +30,27 @@ It's meant for absolute beginners, although it's assumed that you have some basi
 ### Miscellaneous parts for vhs-decode
 
 - Soldering iron and belonging tools
-- CX Card(s) (you'll need two of them to capture video **and** audio because VHS uses two channels, but in this first test we're only going to capture video, so one is enough for now)
-- BNC Female Jack Bulkhead To SMA Male SMA Plug 
 
+- CX Card(s) (you'll need two of them to capture video **and** audio because VHS uses two channels, but in this first test we're only going to capture video, so one is enough for now)
+
+- BNC Female Jack Bulkhead To SMA Male SMA Plug 
+  
     ![BNC Female Jack Bulkhead To SMA Male SMA Plug](images/components/bnc-female-jack-bulkhead-to-sma-male-sma-plug.png)
 
 - SMA Male to SMA Male (or two separate male cables with no connector at the other end, but I found it's easier to find a male to male cable and just cut it in half)
-
+  
     ![SMA Male to SMA Male](images/components/sma-male-to-sma-male.png)
 
 - RG316 BNC Male to BNC Male 
-
+  
     ![RG316 BNC Male to BNC Male](images/components/rg316-bnc-male-to-bnc-male.png)
 
 - BNC Female Right Angle 90 Degree Plug (make sure they look like in this image, there are lots of different variants and this is the one that fits to the CX cards) 
-
+  
     ![BNC Female Right Angle 90 Degree Plug](images/components/bnc-female-right-angle-90-degree-plug.png)
 
 - 10uF Capacitor, preferred ceramic but if you have a spare electrolytic it'll do, but there you need to be aware of the polarization (or just directly go with the amplifier from the ko-fi store, but as of writing this, I haven't fully understood it myself and are just in the first capture stage) 
-
+  
     ![10uF Capacitor](images/components/10uf-capacitor.png)
 
 To make it clear if you're a bit overwhelmed with all the connectors: These are really only for convenience. Theoretically, just a long enough bare coaxial cable would be enough, the connectors are just for convenience to allow you unplugging it and integrating the amplifier (you don't need to know about the amplifier yet).
@@ -73,9 +75,9 @@ For finding the test points, you should follow the official WIKI. As said, in th
 
 VHS-Decode links for finding test points:
 
-- General info: https://github.com/oyvindln/vhs-decode/wiki/RF-Tapping#test-point-names
-- List of already found test points (check if your model is in there): https://github.com/oyvindln/vhs-decode/wiki/004-The-Tap-List
-- Reports (check if your model (or manufacturer) is in there to get more info about your model): https://github.com/oyvindln/vhs-decode/wiki/VCR-reports
+- General info: [RF Tapping · oyvindln/vhs-decode Wiki · GitHub](https://github.com/oyvindln/vhs-decode/wiki/RF-Tapping#test-point-names)
+- List of already found test points (check if your model is in there): [004 The Tap List · oyvindln/vhs-decode Wiki · GitHub](https://github.com/oyvindln/vhs-decode/wiki/004-The-Tap-List)
+- Reports (check if your model (or manufacturer) is in there to get more info about your model): [VCR reports · oyvindln/vhs-decode Wiki · GitHub](https://github.com/oyvindln/vhs-decode/wiki/VCR-reports)
 
 If you can't find the test points by looking at the PCBs inside of the VCR, search the web for a service manual for your specific model.
 It's not that easy to read them if you haven't read service manuals before, but it can definitively help. For example in my case there was a white connector with 6 pins on the board, but only labelled with a cryptic name. I found it in the service manuals and there was also the description what each pin does, one of them was the test point that we need.
@@ -129,17 +131,145 @@ I recommend not connecting the previously made BNC male output from the VCR yet 
 
 ## The software part
 
-1. Install driver
-2. check if driver is loaded by checking if cx card is detected
-3. find the correct vmux input: https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards#cx-white-card-old-rca-s-video
-4. connect BNC male output to cx card
-5. ffplay
-6. run some driver scripts?
-7. first capture to .u8
-8. .u8 to .tbc
-9. analyse (ld-analyse)
-10. export
+### CX card driver
 
-## somewhere later
+#### Checking if the card is recognized
+
+After installing the driver, the card should be there as `/dev/cxadc0`.
+You can check this with this command:
+`ls /dev/cxadc0`
+If it returns the path, your card is properly recognized! If it says the path cannot be found, something went wrong.
+
+#### Installing the driver
+
+For installing the driver, follow the instructions of the driver's README: [GitHub - happycube/cxadc-linux3](https://github.com/happycube/cxadc-linux3?tab=readme-ov-file#getting-started--installation)
+
+First you must install the dependencies, download the repo to your local disk and then build it. After that, reboot and check if the card is recognized.
+
+For installing the dependencies, If you're using a different repo than what's listed there (currently only Ubuntu 22.04 or RPi OS),  AI can help relatively good with getting the dependencies that you need to install on your distro.
+In my case I've use openSUSE. Although it worked for me, I recommend just using a distro (currently Ubuntu) that's supported by the official WIKI if you use a dedicated PC.
+
+#### Connecting the cables
+
+Now after the driver is working, it's a good time to connect the cable with the BNC plug from your VCR to the CX card.
 
 ![First cable connected to CX card](images/first-cable-connected-to-cx-card.jpg)
+
+#### Find the correct `vmux` input
+
+The CX cards have 3 inputs, depending on your card and which of the two RCA inputs you've used, you need to find the correct output.
+
+For finding the correct `vmuc` input, check this wiki: [Types Of CX2388x Cards · happycube/cxadc-linux3 Wiki](https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards)
+
+To configure the correct `vmux` input, you must execute this command:
+`echo 1 >/sys/class/cxadc/cxadc0/device/parameters/vmux`
+Replace the number after `echo` with the input you want to use.
+This is explained here as an example: [https://github.com/happycube/cxadc-linux3?tab=readme-ov-file#module-parameters](https://github.com/happycube/cxadc-linux3?tab=readme-ov-file#module-parameters)
+
+#### Driver setup
+
+You should read trough the driver's README to get an overview of all the things you that you can adjust. I'm not fully sure (because I played around with it because I had no signal at all at first (but at the end the issue was something else, see troubleshooting below)), but I think it's not needed and is only fine adjusting.
+
+### Testing the signal
+
+After successfully installing the driver, we can now finally test if we receive a signal from our VCR.
+For this, we use ffplay: [https://github.com/happycube/cxadc-linux3?tab=readme-ov-file#commands-to-check-for-signal-burst](https://github.com/happycube/cxadc-linux3?tab=readme-ov-file#commands-to-check-for-signal-burst)
+
+### Making the first capture
+
+#### Folder structure
+
+For initial testing, a relatively small disk is okay. But for doing longer captures, you'll need a lot of storage space.
+For testing, I just made a folder in my home directory.
+My folder structure as example:
+
+```
+workdir
+  captures
+    some-capture.u8
+  decoded
+    some-capture.tbc
+    some-capture_chroma.tbc
+    some-capture.json
+    some-capture.log
+  export
+    some-capture.mkv
+  tools
+```
+
+
+
+#### Getting required software
+
+Download the `tbc-tools` archive and the `vhs-decode` AppImage from: [Releases · oyvindln/vhs-decode · GitHub](https://github.com/oyvindln/vhs-decode/releases/).
+Extract the tbc-tools archive into your tools folder. Also place your AppImage there.
+
+Download the `tbc-video-export` AppImage from: [Releases · JuniorIsAJitterbug/tbc-video-export · GitHub](https://github.com/JuniorIsAJitterbug/tbc-video-export/releases)
+
+Example:
+
+```
+.
+└── workdir/
+    └── tools/
+        ├── tbc-tools/
+        │   ├── 40msps-to-10msps-8-bit-HiFi.sh
+        │   ├── ld-compress
+        │   ├── tbc-tools-x86_64.AppImage
+        │   └── ...
+        ├── vhs-decode-x86_64.AppImage
+        └── tbc-video-export-v0.1.8-amd64.AppImage 
+```
+
+#### Capturing
+
+To capture a 10 seconds clip, execute this command (execute inside of your captures folder):
+`timeout 10s cat /dev/cxadc0 |pv > captures/CX_Card_28msps_8-bit.u8`
+
+With that, you receive your capture in this file: `CX_Card_28msps_8-bit.u8`
+
+#### Decoding
+
+After getting the `.u8` file, we can now decode it.
+In my case the command is:
+`tools/vhs-decode-x86_64.AppImage vhs --debug --tape_format vhs --system pal --cxadc --threads 8 --recheck_phase captures/CX_Card_28msps_8-bit.u8 decoded/CX_Card_28msps_8-bit`
+
+For more information, see here: [RF Capture Decoding Guide · oyvindln/vhs-decode Wiki · GitHub](https://github.com/oyvindln/vhs-decode/wiki/RF-Capture-Decoding-Guide#running-the-decoders)
+
+Note that the output path does not have a file ending. That's because it will actually create multiple output files.
+
+### Analysing
+
+Now that we have our `.tbc` files, we can analyse them by starting `ld-analyse` (this opens a GUI, it will throw an error if you're doing it over SSH):
+`tools/tbc-tools/tbc-tools-x86_64.AppImage decoded/CX_Card_28msps_8-bit.tbc`
+
+#### Exporting
+
+Run the export command: `tools/tbc-video-export.AppImage --tbc-tools-appimage tools/tbc-tools/tbc-tools-x86_64.AppImage decoded/tape-2025-12-06.01.tbc`
+
+Move the exported files to the export folder:`mv decoded/*.mkv export`
+
+#### Finished!
+
+You can now watch your `.mkv` file!
+But as explained at the beginning, we don't have any audio yet and the quality can probably be improved by tuning hardware & software.
+
+Although it isn't needed yet in the testing stage, I still want to mention that you can use tools like `Handbrake` to encode your `.mkv` file to make it smaller (depending on the settings you'll lose quality the more you compress it at the reward of disk space).
+
+
+
+## Troubleshooting
+
+### Very bad results
+
+When I tried to preview the signal with ffplay and did my first capture, the results were very bad (unusable).
+But I've just made the very dumb mistake that I did not ground it properly. I just soldered the cable to the video test point but did not solder to the shielding. I'm actually surprised that it worked at all and that it not went up in smokes.
+To ground it properly, just solder the cable's shielding to some metal inside the VCR. In my case I've used the metal box of the TV signal in/output, you can see the yellow cable in my wiring images above.
+
+
+
+### No signal at all / ffplay shows no noise
+
+_Note: If you've got a good connection and no tape is playing, it's normal that there is no noise._
+I've had a really weird issue that after powering on / rebooting the PC, there is just no signal at all. No noise. Nothing.
+Accidentally I found how to make it work: I need to put the PC to sleep (suspend) and then wake it up again. After that, the card works.
