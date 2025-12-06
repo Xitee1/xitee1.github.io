@@ -247,7 +247,7 @@ Now that we have our `.tbc` files, we can analyse them by starting `ld-analyse` 
 
 Run the export command: `tools/tbc-video-export.AppImage --tbc-tools-appimage tools/tbc-tools/tbc-tools-x86_64.AppImage decoded/tape-2025-12-06.01.tbc`
 
-Move the exported files to the export folder:`mv decoded/*.mkv export`
+Move the exported file to the export folder:`mv decoded/*.mkv export`
 
 #### Finished!
 
