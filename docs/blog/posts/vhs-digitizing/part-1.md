@@ -243,6 +243,8 @@ Note that the output path does not have a file ending. That's because it will ac
 Now that we have our `.tbc` files, we can analyse them by starting `ld-analyse` (this opens a GUI, it will throw an error if you're doing it over SSH):
 `tools/tbc-tools/tbc-tools-x86_64.AppImage decoded/CX_Card_28msps_8-bit.tbc`
 
+Hint: If it's only black & white, press the `Source` button in the bottom right menu bar to switch to chroma mode
+
 #### Exporting
 
 Run the export command: `tools/tbc-video-export.AppImage --tbc-tools-appimage tools/tbc-tools/tbc-tools-x86_64.AppImage decoded/tape-2025-12-06.01.tbc`
