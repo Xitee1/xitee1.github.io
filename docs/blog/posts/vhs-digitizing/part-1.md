@@ -53,6 +53,10 @@ It's meant for absolute beginners, although it's assumed that you have some basi
   
     ![10uF Capacitor](images/components/10uf-capacitor.png)
 
+- Optional: 40x40mm heatsinks - for the CX Cards to prevent overheating
+
+    ![Cooling mod @TheRealHarrypm](https://github.com/oyvindln/vhs-decode/wiki/assets/images/Hardware/Clockgen_CX_Card_Heatsync_Sony_ILCE-6000_2024.12.01_02.24.45.jpg)
+
 To make it clear if you're a bit overwhelmed with all the connectors: These are really only for convenience. Theoretically, just a long enough bare coaxial cable would be enough, the connectors are just for convenience to allow you unplugging it and integrating the amplifier (you don't need to know about the amplifier yet).
 
 For all the cables you should get ones with 50 Ohm (usually specified in the product title or description).
@@ -121,6 +125,7 @@ Now we're going to do the following mods:
 
 - [RCA to BNC replacement / adding](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#rca-to-bnc-replacement)
 - [C31 Removal / moving](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#c31-removal)
+- [Optional/Later: Cooling Mood](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#cooling-mod)
 
 In my case I'm using the 3rd connector (and not replacing the middle connector) because one of the cards already had the hole. For the other one, I'm going to drill the hole myself.
 After having the BNC connector installed, do the C31 removal (or move it to the other pad if you're using the 3rd connector like I do).
