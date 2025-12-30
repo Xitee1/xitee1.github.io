@@ -111,8 +111,11 @@ You can also prepare the other cable for Hi-Fi audio capture.
 
 #### CX Cards
 
-First find out what model you've got and if it's good: https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards
+First find out what model you've got and if it's good: [Types Of CX2388x Cards · happycube/cxadc-linux3 Wiki](https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards).
+The exact model is written on the big chip on the card.
 They even ship different models if you order multiple at once. For me, one had the CX23883 and the other the CX25800 chip.
+The CX25800 is the slightly better one, but CX23883 seems to be fine too.
+For the first video-only capture, I chose to use the CX23883 card as it had the hole for the additional connector already drilled.
 
 Now we're going to do the following mods:
 
@@ -122,10 +125,11 @@ Now we're going to do the following mods:
 In my case I'm using the 3rd connector (and not replacing the middle connector) because one of the cards already had the hole. For the other one, I'm going to drill the hole myself.
 After having the BNC connector installed, do the C31 removal (or move it to the other pad if you're using the 3rd connector like I do).
 
+Note: I'm actually unsure if the C31 removal (and BNC Jack mod) should be done for the newer CX25800 cards because in the [Types Of CX2388x Cards](https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards) wiki, recommended mods are only listed for the older CX23883. I don't know if they just forgot to add the recommended mods to the description of the newer card or if it's intentional. However, in the [CX Cards](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#rca-to-bnc-replacement) wiki, there is no differentiation between card types.
+
 Because I will do the clockgen mod later anyway (which I really recommend to avoid sync issues) and just want to see if it's working at all right now, I'm not going to do the crystal replacement mod.
 
 After your card is ready, install it to your capturing PC.
-I recommend not connecting the previously made BNC male output from the VCR yet before the driver is installed.
 
 ![CX Card installed in PC](images/cx-card-1-in-pc.jpg)
 
