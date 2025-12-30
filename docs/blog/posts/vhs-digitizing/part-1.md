@@ -284,5 +284,8 @@ To ground it properly, just solder the cable's shielding to some metal inside th
 ### No signal at all / ffplay shows no noise
 
 _Note: If you've got a good connection and no tape is playing, it's normal that there is no noise._
+
 I've had a really weird issue that after powering on / rebooting the PC, there is just no signal at all. No noise. Nothing.
 Accidentally I found how to make it work: I need to put the PC to sleep (suspend) and then wake it up again. After that, the card works.
+
+Another cause can be a missing or not fully installed driver, especially after OS updates. Follow all the driver install steps again, including the permissions.
