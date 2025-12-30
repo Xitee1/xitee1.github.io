@@ -1571,7 +1571,7 @@
           
           <li class="md-meta__item">
             
-              11 min read
+              12 min read
             
           </li>
         
@@ -1626,6 +1626,10 @@ It's meant for absolute beginners, although it's assumed that you have some basi
 <p>10uF Capacitor, preferred ceramic but if you have a spare electrolytic it'll do, but there you need to be aware of the polarization (or just directly go with the amplifier from the ko-fi store, but as of writing this, I haven't fully understood it myself and are just in the first capture stage) </p>
 <p><img alt="10uF Capacitor" src="../../vhs-digitizing/images/components/10uf-capacitor.png"></p>
 </li>
+<li>
+<p>Optional: 40x40mm heatsinks - for the CX Cards to prevent overheating</p>
+<p><img alt="Cooling mod @TheRealHarrypm" src="https://github.com/oyvindln/vhs-decode/wiki/assets/images/Hardware/Clockgen_CX_Card_Heatsync_Sony_ILCE-6000_2024.12.01_02.24.45.jpg"></p>
+</li>
 </ul>
 <p>To make it clear if you're a bit overwhelmed with all the connectors: These are really only for convenience. Theoretically, just a long enough bare coaxial cable would be enough, the connectors are just for convenience to allow you unplugging it and integrating the amplifier (you don't need to know about the amplifier yet).</p>
 <p>For all the cables you should get ones with 50 Ohm (usually specified in the product title or description).</p>
@@ -1666,18 +1670,22 @@ You can also prepare the other cable for Hi-Fi audio capture.</p>
 <p><img alt="Cable tap in VCR - Overview" src="../../vhs-digitizing/images/first-cable-tap-in-vcr-overview.jpg"></p>
 <p><img alt="Cable from VCR" src="../../vhs-digitizing/images/first-cable-from-vcr.jpg"></p>
 <h5 id="cx-cards"><a class="toclink" href="../../2025/12/06/vhs-decode---part-1/#cx-cards">CX Cards</a></h5>
-<p>First find out what model you've got and if it's good: https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards
-They even ship different models if you order multiple at once. For me, one had the CX23883 and the other the CX25800 chip.</p>
+<p>First find out what model you've got and if it's good: <a href="https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards">Types Of CX2388x Cards · happycube/cxadc-linux3 Wiki</a>.
+The exact model is written on the big chip on the card.
+They even ship different models if you order multiple at once. For me, one had the CX23883 and the other the CX25800 chip.
+The CX25800 is the slightly better one, but CX23883 seems to be fine too.
+For the first video-only capture, I chose to use the CX23883 card as it had the hole for the additional connector already drilled.</p>
 <p>Now we're going to do the following mods:</p>
 <ul>
 <li><a href="https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#rca-to-bnc-replacement">RCA to BNC replacement / adding</a></li>
 <li><a href="https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#c31-removal">C31 Removal / moving</a></li>
+<li><a href="https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#cooling-mod">Optional/Later: Cooling Mood</a></li>
 </ul>
 <p>In my case I'm using the 3rd connector (and not replacing the middle connector) because one of the cards already had the hole. For the other one, I'm going to drill the hole myself.
 After having the BNC connector installed, do the C31 removal (or move it to the other pad if you're using the 3rd connector like I do).</p>
+<p>Note: I'm actually unsure if the C31 removal (and BNC Jack mod) should be done for the newer CX25800 cards because in the <a href="https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards">Types Of CX2388x Cards</a> wiki, recommended mods are only listed for the older CX23883. I don't know if they just forgot to add the recommended mods to the description of the newer card or if it's intentional. However, in the <a href="https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#rca-to-bnc-replacement">CX Cards</a> wiki, there is no differentiation between card types.</p>
 <p>Because I will do the clockgen mod later anyway (which I really recommend to avoid sync issues) and just want to see if it's working at all right now, I'm not going to do the crystal replacement mod.</p>
-<p>After your card is ready, install it to your capturing PC.
-I recommend not connecting the previously made BNC male output from the VCR yet before the driver is installed.</p>
+<p>After your card is ready, install it to your capturing PC.</p>
 <p><img alt="CX Card installed in PC" src="../../vhs-digitizing/images/cx-card-1-in-pc.jpg"></p>
 <h3 id="the-software-part"><a class="toclink" href="../../2025/12/06/vhs-decode---part-1/#the-software-part">The software part</a></h3>
 <h4 id="cx-card-driver"><a class="toclink" href="../../2025/12/06/vhs-decode---part-1/#cx-card-driver">CX card driver</a></h4>

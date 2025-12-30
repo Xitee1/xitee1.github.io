@@ -1925,7 +1925,7 @@
                       <li class="md-nav__item">
                         <div class="md-nav__link">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 13h1.5v2.82l2.44 1.41-.75 1.3L15 16.69zm4-5H5v11h4.67c-.43-.91-.67-1.93-.67-3a7 7 0 0 1 7-7c1.07 0 2.09.24 3 .67zM5 21a2 2 0 0 1-2-2V5c0-1.11.89-2 2-2h1V1h2v2h8V1h2v2h1a2 2 0 0 1 2 2v6.1c1.24 1.26 2 2.99 2 4.9a7 7 0 0 1-7 7c-1.91 0-3.64-.76-4.9-2zm11-9.85A4.85 4.85 0 0 0 11.15 16c0 2.68 2.17 4.85 4.85 4.85A4.85 4.85 0 0 0 20.85 16c0-2.68-2.17-4.85-4.85-4.85"></path></svg>
-                          <time datetime="2025-12-06 00:00:00+00:00" class="md-ellipsis">December 6, 2025</time>
+                          <time datetime="2025-12-30 00:00:00+00:00" class="md-ellipsis">December 30, 2025</time>
                         </div>
                       </li>
                     
@@ -1937,7 +1937,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
                           <span class="md-ellipsis">
                             
-                              11 min read
+                              12 min read
                             
                           </span>
                         </div>
@@ -2009,6 +2009,10 @@ It's meant for absolute beginners, although it's assumed that you have some basi
 <p>10uF Capacitor, preferred ceramic but if you have a spare electrolytic it'll do, but there you need to be aware of the polarization (or just directly go with the amplifier from the ko-fi store, but as of writing this, I haven't fully understood it myself and are just in the first capture stage) </p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../vhs-digitizing/images/components/10uf-capacitor.png" data-desc-position="bottom"><img alt="10uF Capacitor" src="../../../../vhs-digitizing/images/components/10uf-capacitor.png"></a></p>
 </li>
+<li>
+<p>Optional: 40x40mm heatsinks - for the CX Cards to prevent overheating</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/oyvindln/vhs-decode/wiki/assets/images/Hardware/Clockgen_CX_Card_Heatsync_Sony_ILCE-6000_2024.12.01_02.24.45.jpg" data-desc-position="bottom"><img alt="Cooling mod @TheRealHarrypm" src="https://github.com/oyvindln/vhs-decode/wiki/assets/images/Hardware/Clockgen_CX_Card_Heatsync_Sony_ILCE-6000_2024.12.01_02.24.45.jpg"></a></p>
+</li>
 </ul>
 <p>To make it clear if you're a bit overwhelmed with all the connectors: These are really only for convenience. Theoretically, just a long enough bare coaxial cable would be enough, the connectors are just for convenience to allow you unplugging it and integrating the amplifier (you don't need to know about the amplifier yet).</p>
 <p>For all the cables you should get ones with 50 Ohm (usually specified in the product title or description).</p>
@@ -2049,18 +2053,22 @@ You can also prepare the other cable for Hi-Fi audio capture.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../vhs-digitizing/images/first-cable-tap-in-vcr-overview.jpg" data-desc-position="bottom"><img alt="Cable tap in VCR - Overview" src="../../../../vhs-digitizing/images/first-cable-tap-in-vcr-overview.jpg"></a></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../vhs-digitizing/images/first-cable-from-vcr.jpg" data-desc-position="bottom"><img alt="Cable from VCR" src="../../../../vhs-digitizing/images/first-cable-from-vcr.jpg"></a></p>
 <h4 id="cx-cards">CX Cards</h4>
-<p>First find out what model you've got and if it's good: https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards
-They even ship different models if you order multiple at once. For me, one had the CX23883 and the other the CX25800 chip.</p>
+<p>First find out what model you've got and if it's good: <a href="https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards">Types Of CX2388x Cards · happycube/cxadc-linux3 Wiki</a>.
+The exact model is written on the big chip on the card.
+They even ship different models if you order multiple at once. For me, one had the CX23883 and the other the CX25800 chip.
+The CX25800 is the slightly better one, but CX23883 seems to be fine too.
+For the first video-only capture, I chose to use the CX23883 card as it had the hole for the additional connector already drilled.</p>
 <p>Now we're going to do the following mods:</p>
 <ul>
 <li><a href="https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#rca-to-bnc-replacement">RCA to BNC replacement / adding</a></li>
 <li><a href="https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#c31-removal">C31 Removal / moving</a></li>
+<li><a href="https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#cooling-mod">Optional/Later: Cooling Mood</a></li>
 </ul>
 <p>In my case I'm using the 3rd connector (and not replacing the middle connector) because one of the cards already had the hole. For the other one, I'm going to drill the hole myself.
 After having the BNC connector installed, do the C31 removal (or move it to the other pad if you're using the 3rd connector like I do).</p>
+<p>Note: I'm actually unsure if the C31 removal (and BNC Jack mod) should be done for the newer CX25800 cards because in the <a href="https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards">Types Of CX2388x Cards</a> wiki, recommended mods are only listed for the older CX23883. I don't know if they just forgot to add the recommended mods to the description of the newer card or if it's intentional. However, in the <a href="https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#rca-to-bnc-replacement">CX Cards</a> wiki, there is no differentiation between card types.</p>
 <p>Because I will do the clockgen mod later anyway (which I really recommend to avoid sync issues) and just want to see if it's working at all right now, I'm not going to do the crystal replacement mod.</p>
-<p>After your card is ready, install it to your capturing PC.
-I recommend not connecting the previously made BNC male output from the VCR yet before the driver is installed.</p>
+<p>After your card is ready, install it to your capturing PC.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../vhs-digitizing/images/cx-card-1-in-pc.jpg" data-desc-position="bottom"><img alt="CX Card installed in PC" src="../../../../vhs-digitizing/images/cx-card-1-in-pc.jpg"></a></p>
 <h2 id="the-software-part">The software part</h2>
 <h3 id="cx-card-driver">CX card driver</h3>
@@ -2174,7 +2182,7 @@ Accidentally I found how to make it work: I need to put the PC to sleep (suspend
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 27, 2025 14:14:43 UTC"><span class="timeago" datetime="2025-12-27T14:14:43+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 27, 2025 14:14:43 UTC">2025-12-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 30, 2025 14:38:19 UTC"><span class="timeago" datetime="2025-12-30T14:38:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 30, 2025 14:38:19 UTC">2025-12-30</span>
   </span>
 
     
